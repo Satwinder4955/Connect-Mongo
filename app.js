@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
 
 // configure mongoose
 mongoose
-.connect(config.db,{useNewUrlParser: true,useUnifiedTopology:true})
+.connect(config.db)
 .then((message)=>{
   console.log('Connected Successfully');
 })
