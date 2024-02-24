@@ -12,7 +12,7 @@ router.get('/add', function(req, res, next) {
 });
 
 //post/projects/add
-router.post("/add",async (req,res){
+router.post("/add",function (req,res){
 // use project module to save the data the DB
 // use the new Project() Method of the model
 // map the fields with the data from the request
@@ -23,9 +23,12 @@ let newProject= new Project({
     Id : req.body.Id,
     date : req.body.date,
     course: req.body.course
-});// save changes
- await newProject.save();
- res.redirect("/projects");
+})
+
+
+// save changes
+newProject.save();
+res.redirect("/projects");
 
 
 });
