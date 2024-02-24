@@ -11,12 +11,15 @@ const  dataSchemaObj = {
     name:{  type : String, required: true},
     Id: {type :String ,required:true },
     Date: {type :Date ,default: new Date() },
-    course: { type:String
-     }
+    course: { type:String },
 };
 
 
 
 // create mongoose schema
 
+const projectsSchema = mongoose.Schema(dataSchemaObj);
+
 // create and importing mongoose model
+
+module.export= mongoose.model("project",projectsSchema) ;
