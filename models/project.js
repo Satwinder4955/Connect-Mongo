@@ -22,4 +22,4 @@ const projectsSchema = mongoose.Schema(dataSchemaObj);
 
 // create and importing mongoose model
 
-module.export= mongoose.model("project",projectsSchema) ;
+module.exports= mongoose.model("project",projectsSchema) ;
