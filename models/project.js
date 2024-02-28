@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const  dataSchemaObj = {
     name:{  type : String, required: true},
     Id: {type :String ,required:true },
-    Date: {type :Date ,default: new Date() },
+    date: {type :Date ,default: new Date() },
     course: { type:String },
 };
 
