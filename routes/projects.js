@@ -3,9 +3,12 @@ var router = express.Router();
 const Project = require('../models/project');
 
 
-router.get('/', function(req, res, next) {
-    res.render("projects/index",{title: "This is a Project Tracker 2024"})
-});
+router.get('/', async (req, res, next) => {
+    let projects = await Project.find();
+    res.render("projects/index",
+      {title: "This is a Project Tracker 2024",
+      dataset:projects});
+  });
 
 router.get('/add', function(req, res, next) {
     res.render("projects/add",{title: "This is New project"})

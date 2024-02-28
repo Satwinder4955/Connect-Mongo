@@ -1,2 +1,26 @@
 <h1>{{title}}</h1>
 <p>This index is from project</p>
+
+
+<table>
+    <thead>
+        <th>Student Name</th>
+        <th>StudentID </th>
+        <th>Due Date</th>
+        <th>Course Name</th>
+
+    </thead>
+    <tbody>
+    {{#each dataset}}
+    <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.Id}}</td>
+        <td>{{this.date}}</td>
+        <td>{{this.course}}</td>
+
+    </tr>
+    {{/each}}
+    </tbody>
+
+
+</table>
