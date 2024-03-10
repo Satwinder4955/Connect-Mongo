@@ -8,6 +8,8 @@
         <th>StudentID </th>
         <th>Due Date</th>
         <th>Course Name</th>
+        <th>Action</th>
+
 
     </thead>
     <tbody>
@@ -17,6 +19,11 @@
         <td>{{this.Id}}</td>
         <td>{{this.date}}</td>
         <td>{{this.course}}</td>
+        <td>
+            <a href="/projects/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+            <a href="/projects/delete/{{this._id}}" onclick="return confirmDeletion()" class="btn btn-danger">Delete</a>
+        </td>
+
 
     </tr>
     {{/each}}

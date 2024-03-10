@@ -14,6 +14,11 @@ var config = require('./config/globals'); // Configuration file
 // Connecting mongoose;
 var mongoose = require('mongoose');
 
+// Passport
+var Passport=require("passport");
+var session = require(	 "express-session" );
+var LocalStrategy = require("passport-local").Strategy;
+
 
 
 // view engine setup
@@ -35,6 +40,8 @@ app.use('/projects', projectsRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
 
 // configure mongoose
 mongoose
