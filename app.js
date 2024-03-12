@@ -31,6 +31,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//configure passport module
+app.use(session({
+  secret: 'secret123',
+  resave: false,
+  saveUninitialized: false
+}))
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
