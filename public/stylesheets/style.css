@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+table{
+  border:1px solid black;
+  
+ 
+
+}
+table{
+  margin-left:10%;
+  width:60%;
+
+}
+td,tr{
+  border:1px solid black;
+  padding:20px;
+}
+a{
+  background: gainsboro;
+ border: 1px solid black;
+padding: 15px;
+color:black;
+
+}
