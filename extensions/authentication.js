@@ -1,6 +1,6 @@
 function AuthenticationMiddleWare(req, res, next){
     if(req.isAuthenticated){
-        return next
+        return next();
     }else{
            res.redirect("/login");
     }
