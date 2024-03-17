@@ -1,16 +1,30 @@
-<h1>{{title}}</h1>
-<form method="post">
-    <label >Student Name</label>
-    <input type="text" name="name" required>
-    
-    <label >StudentID</label>
-    <input type="text" name="Id" required>
-    
-    <label >Due Date</label>
-    <input type="Date" name="Date" required>
-    
-    <label >Course</label>
-    <input type="text" name="course" required>
-    
-    <button type="submit">Submit</button>
+<h1>
+  {{title}}
+</h1>
+<form method="POST">
+  {{! Input names have to match the name of the fields in the mongo schema object }}
+  {{! Mapping is not automatic, but it's best practices }}
+  <fieldset>
+    <label for="name" class="col-2">
+      Name:
+    </label>
+    <input name="name" id="name" required />
+  </fieldset>
+  <fieldset>
+    <label for="dueDate" class="col-2">
+      Due Date:
+    </label>
+    <input name="dueDate" id="dueDate" required type="date" />
+  </fieldset>
+  <fieldset>
+    <label for="course" class="col-2">Course:</label>
+   <input name="course" id="course" required /> 
+     </fieldset>
+     <fieldset>
+   <label for="status" class="col-2">Status:</label>
+    <input name="status" id="status" required /> </fieldset>
+     </fieldset>
+  <button class="offset-3 btn btn-primary">
+    Save
+  </button>
 </form>

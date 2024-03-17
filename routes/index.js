@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User").default;
+const User = require("../models/User");
 const passport = require("passport");
 
 /* GET home page. */
@@ -57,5 +57,16 @@ router.post("/register", (req, res, next) => {
     }
   );
 });
+
+// get /logout
+router.get("/logout",(res,req,next)=>{
+
+  req.logout((res)=>{
+    res.redirect("/login")
+
+  })
+})
+
+
 
 module.exports = router;

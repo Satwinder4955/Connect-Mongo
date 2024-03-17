@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Project = require('../models/project');
+const AuthenticationMiddleWare = require('../extensions/authentication')
 
 
 
@@ -11,12 +12,12 @@ router.get('/', async (req, res, next) => {
       dataset:projects});
   });
 
-router.get('/add', function(req, res, next) {
+router.get('/add', AuthenticationMiddleWare,function(req, res, next) {
     res.render("projects/add",{title: "This is New project"})
 });
 
 //post/projects/add
-router.post("/add",function (req,res){
+router.post("/add",AuthenticationMiddleWare,async (req,res)=>{
 // use project module to save the data the DB
 // use the new Project() Method of the model
 // map the fields with the data from the request
@@ -31,7 +32,7 @@ let newProject= new Project({
 
 
 // save changes
-newProject.save();
+await newProject.save();
 res.redirect("/projects");
 
 
@@ -50,14 +51,14 @@ res.redirect("/projects");
 //     res.redirect("/projects");
 //   });
 
-router.get("/delete/:_id", async (req, res, next) => {
+router.get("/delete/:_id",AuthenticationMiddleWare, async (req, res, next) => {
     let projectId = req.params._id;
     await Project.findOneAndDelete({ _id: projectId });
     res.redirect("/projects");
   });
 
   //GET/projects/edit/_id
-router.get("/edit/:_id", async (req, res, next) => {
+router.get("/edit/:_id", AuthenticationMiddleWare, async (req, res, next) => {
     let projectId= req.params._id;
     let projectData=await Project.findById(projectId);
     res.render("projects/edit",{
@@ -66,7 +67,7 @@ router.get("/edit/:_id", async (req, res, next) => {
     })
     });
   //POST/projects/edit/_id
-    router.post("/edit/:_id",async (req,res,next)=>{
+    router.post("/edit/:_id", AuthenticationMiddleWare, async (req,res,next)=>{
       let projectId= req.params._id;
       await Project.findByIdAndUpdate(
      {_id:projectId},
