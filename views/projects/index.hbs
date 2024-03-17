@@ -1,42 +1,30 @@
 <h1>{{title}}</h1>
-<p>This index is from project</p>
-
-<nav>
-    <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/logout">Logout</a></li>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/projects">Projects</a></li>
-    </ul>
-</nav>
-
+{{!-- CRUD Functionality --}}
+{{!-- CREATE button --}}
+<a href="/projects/add">Add a new project</a>
+{{!-- READ Show Table to view all projects in db --}}
 <table>
     <thead>
-        <th>Student Name</th>
-        <th>StudentID </th>
+        <th>Name</th>
         <th>Due Date</th>
-        <th>Course Name</th>
+        <th>Course</th>
+        <th>Status</th>
         <th>Action</th>
-
-
     </thead>
     <tbody>
-    {{#each dataset}}
-    <tr>
+        {{!-- Retrieve all projects and loop --}}
+        {{#each dataset}}
+        <tr>
         <td>{{this.name}}</td>
-        <td>{{this.Id}}</td>
-        <td>{{this.date}}</td>
-        <td>{{this.course}}</td>
-        <td>
+           <td>{{ this.dueDate}}</td>
+            <td>{{this.course}}</td>
+            <td>{{this.status}}</td>
+            {{!-- UPDATE and DELETE buttons --}}
+            <td>
             <a href="/projects/edit/{{this._id}}" class="btn btn-primary">Edit</a>
             <a href="/projects/delete/{{this._id}}" onclick="return confirmDeletion()" class="btn btn-danger">Delete</a>
-        </td>
-
-
-    </tr>
-    {{/each}}
+            </td>
+        </tr>
+        {{/each}}
     </tbody>
-
-
 </table>
